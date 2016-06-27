@@ -1,0 +1,25 @@
+{{#if (eq viewer.viewLayout "list")}}
+  <header class="fv-filelist-header">
+    <span>Name</span>
+    <span>Modified</span>
+    <span>Size</span>
+  </header>
+{{/if}}
+
+<ul class="fv-filelist-container">
+  {{#unless viewer.isLoading}}
+    {{#if viewer.parent}}
+      {{fv-file tagName="li"
+        viewer=viewer
+        model=viewer.parent.parent
+        on-drop=(action moveSelectionTo)}}
+    {{/if}}
+
+    {{#each sorted as |file|}}
+      {{fv-file tagName="li"
+        viewer=viewer
+        model=file
+        on-drop=(action moveSelectionTo)}}
+    {{/each}}
+  {{/unless}}
+</ul>

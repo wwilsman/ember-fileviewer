@@ -1,0 +1,11 @@
+.fv-modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: calc(100% - 2rem);
+  border-radius: 0.25rem;
+  background: white;
+  max-width: 40rem;
+}

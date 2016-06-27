@@ -1,0 +1,14 @@
+<button class="fv-services-toggle"
+    onclick={{action (mut isActive) (not isActive)}}>
+  {{{activeService.icon}}}
+</button>
+
+<ul class="fv-services-list">
+  {{#each availableServices as |service|}}
+    <li><a class="{{if (eq service activeService) "is-active"}}"
+        onclick={{action "setService" service}}>
+      {{{service.icon}}}
+      <span>{{service.label}}</span>
+    </a></li>
+  {{/each}}
+</ul>

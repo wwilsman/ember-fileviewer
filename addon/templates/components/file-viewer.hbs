@@ -1,0 +1,13 @@
+<header class="fv-header">
+  <div class="fv-title">{{titlebar}}</div>
+  {{fv-toolbar viewer=this}}
+  {{fv-services}}
+</header>
+
+<div class="fv-window">
+  {{fv-filelist viewer=this}}
+</div>
+
+<footer class="fv-footer">
+  {{fv-actionbar viewer=this on-confirm="on-confirm"}}
+</footer>

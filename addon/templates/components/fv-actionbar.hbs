@@ -1,0 +1,23 @@
+<button class="fv-button fv-button--primary">
+  <i class="cloud upload icon"></i>
+</button>
+
+{{#if (and selection (not isOnlyTopSelected))}}
+  <button class="fv-button fv-button--delete" {{action "deleteSelection"}}>
+    {{if isSelectionTrash 'Delete' 'Move to Trash'}}
+  </button>
+{{/if}}
+
+<span class="fv-sep"></span>
+
+<button class="fv-button">Cancel</button>
+
+{{#if isSelectionTrash}}
+  <button class="fv-button fv-button--primary" {{action "restoreSelection"}}>
+    Restore
+  </button>
+{{else}}
+  <button class="fv-button fv-button--primary" disabled={{not validSelection}}>
+    Select
+  </button>
+{{/if}}

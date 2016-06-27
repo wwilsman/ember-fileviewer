@@ -1,0 +1,59 @@
+.fv-window {
+  flex-grow: 1;
+  background: #eee;
+  border: 1px solid rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  height: 22rem;
+  display: flex;
+
+  &-header {
+    color: #888;
+    background: rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0.25rem 0.875rem;
+    font-size: 0.625rem;
+    line-height: 1.5;
+    display: flex;
+
+    & > span {
+      text-align: right;
+      width: 6rem;
+    }
+
+    & > span:first-child {
+      text-align: left;
+      padding-left: 3rem;
+      width: auto;
+      flex: 1;
+    }
+  }
+
+  .fv.is-loading & {
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 2rem;
+      height: 2rem;
+      border: 0.25rem solid;
+      border-top-color: transparent;
+      border-radius: 50%;
+      color: #2196F3;
+      margin: -1rem;
+      z-index: 2;
+      animation: 0.5s linear fv-spinner infinite;
+    }
+  }
+}

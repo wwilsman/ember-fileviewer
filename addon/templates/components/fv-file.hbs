@@ -1,0 +1,36 @@
+<div class="fv-file-thumbnail fv-file-thumbnail--{{model.filetype}}">
+  {{#if (or isFolder isGrandparent)}}
+    <i class="folder icon{{if isGrandparent ' outline'}}"></i>
+  {{else if model.thumbnail}}
+    <img src={{model.thumbnail}} alt={{model.name}} draggable="false">
+  {{else}}
+    <i class="file icon"></i>
+  {{/if}}
+</div>
+
+<div class="fv-file-name">
+  {{#if isEditing}}
+    {{#if isDetailed}}
+      {{input class="fv-file-input"
+        value=newName
+        focus-out="save"
+        escape-press="cancelEditing"
+        key-down="preventNewline"}}
+    {{else}}
+      {{textarea class="fv-file-input"
+        value=newName
+        focus-out="save"
+        escape-press="cancelEditing"
+        key-down="preventNewline"}}
+    {{/if}}
+  {{else}}
+    {{if isGrandparent "../" model.name}}
+  {{/if}}
+</div>
+
+{{#if (and isDetailed (not isGrandparent))}}
+  <div class="fv-file-info">
+    <span>{{#if model.modified}}{{moment-from-now model.modified}}{{/if}}</span>
+    <span>{{format-bytes model.size}}</span>
+  </div>
+{{/if}}

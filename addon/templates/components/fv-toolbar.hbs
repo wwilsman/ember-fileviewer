@@ -1,0 +1,25 @@
+<button class="fv-button" {{action "newFolder"}}
+    disabled={{showMenu}}>
+  <i class="plus icon"></i>
+</button>
+
+<button class="fv-button" onclick={{action (mut showTrash) (not showTrash)}}>
+  <i class="trash icon{{if showTrash " outline"}}"></i>
+</button>
+
+<select class="fv-select"
+    onchange={{action (mut activeSort) value="target.value"}}>
+  {{#each sortOptions as |option|}}
+    <option value={{option.value}}
+        selected={{eq option.value activeSort}}>
+      {{option.label}}
+    </option>
+  {{/each}}
+</select>
+
+{{#each layoutOptions as |option|}}
+  <button class="fv-button" disabled={{eq option.name activeLayout}}
+      onclick={{action (mut activeLayout) option.name}}>
+    <i class={{option.icon}}></i>
+  </button>
+{{/each}}

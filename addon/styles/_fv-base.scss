@@ -1,0 +1,38 @@
+.fv, [class^="fv-"], [class*=" fv-"] {
+  font-family: Helvetica, sans-serif;
+
+  &, &::before, &::after,
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+.fv {
+
+  &-header {
+    padding: 0.5rem;
+  }
+
+  &-title {
+    text-align: center;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    color: #888;
+  }
+
+  &-footer {
+    padding: 0.5rem;
+  }
+}
+
+@keyframes fv-spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fv-file-flash {
+  0% { background: transparent; }
+  33.33% { background: #B3E5FC; }
+  66.66% { background: transparent; }
+  100% { background: #B3E5FC; }
+}
